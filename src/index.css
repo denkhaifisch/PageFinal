@@ -1,0 +1,379 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* J Digital Design System - Professional Digital Agency */
+
+@layer base {
+  :root {
+    /* Primary palette - Dark navy blues */
+    --background: 210 25% 97%;
+    --foreground: 213 39% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 39% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 39% 11%;
+
+    /* Crimson red accent */
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light gray secondary */
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 213 39% 11%;
+
+    --muted: 210 20% 93%;
+    --muted-foreground: 213 20% 45%;
+
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 0 72% 51%;
+
+    --radius: 0.5rem;
+
+    /* Custom colors */
+    --navy-dark: 213 39% 11%;
+    --navy-medium: 214 34% 17%;
+    --crimson: 0 72% 51%;
+    --crimson-dark: 0 72% 42%;
+    --crimson-light: 0 72% 60%;
+    
+    /* Gradients */
+    --gradient-dark: linear-gradient(135deg, hsl(213 39% 11%) 0%, hsl(214 34% 17%) 100%);
+    --gradient-crimson: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 72% 42%) 100%);
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(0 0% 0% / 0.1);
+    --shadow-card: 0 10px 40px -10px hsl(0 0% 0% / 0.15);
+    --shadow-crimson: 0 10px 30px -5px hsl(0 72% 51% / 0.35);
+    --shadow-glow: 0 0 40px hsl(0 72% 51% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 213 39% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 213 39% 11%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 213 39% 11%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 214 34% 17%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 214 34% 17%;
+    --muted-foreground: 210 15% 60%;
+
+    --accent: 0 72% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 25% 20%;
+    --input: 214 25% 20%;
+    --ring: 0 72% 51%;
+
+    --sidebar-background: 213 39% 8%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 0 72% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 214 34% 17%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 214 25% 20%;
+    --sidebar-ring: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  /* Section utilities */
+  .section-dark {
+    @apply bg-navy text-white;
+  }
+
+  .section-light {
+    @apply bg-background text-foreground;
+  }
+
+  /* Container */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section badge */
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+  }
+
+  .section-badge-crimson {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .section-badge-dark {
+    @apply bg-navy-light text-white;
+  }
+
+  /* Feature card with enhanced hover */
+  .feature-card {
+    @apply bg-card border border-border rounded-xl p-6 transition-all duration-300;
+  }
+
+  .feature-card:hover {
+    @apply shadow-card -translate-y-2 border-primary/30;
+  }
+
+  .feature-card-dark {
+    @apply bg-navy-light border-navy-medium rounded-xl p-6 transition-all duration-300;
+  }
+
+  .feature-card-dark:hover {
+    @apply shadow-lg -translate-y-2 border-primary/50;
+  }
+
+  /* Icon box */
+  .icon-box {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300;
+  }
+
+  .icon-box-crimson {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .icon-box-white {
+    @apply bg-white/10 text-white;
+  }
+
+  /* Hover effects for cards */
+  .card-hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-card;
+  }
+
+  .card-hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow hover:border-primary/30;
+  }
+
+  .card-hover-scale {
+    @apply transition-transform duration-300 hover:scale-[1.02];
+  }
+
+  /* Button hover effects */
+  .btn-hover-lift {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .btn-hover-glow {
+    @apply transition-all duration-200 hover:shadow-crimson;
+  }
+
+  /* Link underline animation */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+}
+
+@layer utilities {
+  /* Fade in animation */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animation-delay-100 { animation-delay: 0.1s; }
+  .animation-delay-200 { animation-delay: 0.2s; }
+  .animation-delay-300 { animation-delay: 0.3s; }
+  .animation-delay-400 { animation-delay: 0.4s; }
+  .animation-delay-500 { animation-delay: 0.5s; }
+  .animation-delay-600 { animation-delay: 0.6s; }
+  .animation-delay-700 { animation-delay: 0.7s; }
+  .animation-delay-800 { animation-delay: 0.8s; }
+
+  /* Scale in animation */
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out forwards;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Fade in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Slide animations */
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.3s ease-out forwards;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pulse glow animation */
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(0 72% 51% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(0 72% 51% / 0.5);
+    }
+  }
+
+  /* Float animation for decorative elements */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* Scroll fade observer */
+  .fade-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Counter animation */
+  .counter-number {
+    @apply text-4xl md:text-5xl font-bold;
+  }
+
+  /* Video background styles */
+  .video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+  }
+
+  /* Parallax layers */
+  .parallax-slow {
+    will-change: transform;
+  }
+
+  /* Navbar transition */
+  .navbar-hidden {
+    transform: translateY(-100%);
+  }
+
+  .navbar-visible {
+    transform: translateY(0);
+  }
+}
